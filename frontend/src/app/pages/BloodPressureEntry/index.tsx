@@ -94,30 +94,32 @@ export function BloodPressureEntry(props: Props) {
               <TextField
                 label="Systolic"
                 value={systolic}
-                onChange={e => setSystolic(e.target.value)}
+                onChange={e => setSystolic(e.target.value.toString())}
                 required
                 sx={{ marginBottom: 2 }}
                 variant="outlined"
                 select
+                data-testid="Systolic"
               >
                 {Array.from(Array(401).keys()).map(num => (
-                  <MenuItem key={num} value={num}>
+                  <MenuItem key={num} value={num} data-testid={`sys${num}`}>
                     {num}
                   </MenuItem>
                 ))}
               </TextField>
 
               <TextField
-                label="Disatolic"
+                label="Diastolic"
                 value={diastolic}
-                onChange={e => setDiastolic(e.target.value)}
+                onChange={e => setDiastolic(e.target.value.toString())}
                 required
                 sx={{ marginBottom: 2 }}
                 variant="outlined"
                 select
+                data-testid="Diastolic"
               >
                 {Array.from(Array(401).keys()).map(num => (
-                  <MenuItem key={num} value={num}>
+                  <MenuItem key={num} value={num} data-testid={`dias${num}`}>
                     {num}
                   </MenuItem>
                 ))}
