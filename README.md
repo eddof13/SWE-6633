@@ -1,4 +1,4 @@
-# Frontend - Blood Pressure Monitoring Web App
+# Blood Pressure Monitoring Web App
 ## SWE 6633 – Software Project Planning and Management
 ## Summer 2023
 ## Team 3:
@@ -8,68 +8,20 @@
     Arbern Lim
     Edward Jesinsky
 
-##  Installation and Setup
+## Project Overview
 
-This is the **frontend** for the project. It is built using React and utilizes various libraries and dependencies.
+### Description:
 
-### Prerequisites
-Before getting started, ensure that you have the following software installed on your machine:
+The project aims to provide users with a convenient and efficient tool for recording and monitoring blood pressure measurements. It will provide a practical software application that allows individuals to track their readings over time, helping them maintain a record of their health and make informed decisions regarding their well-being, anytime or anywhere. 
 
-> Node.js (version 12 or above)
+###  Purpose:
 
-> Yarn package manager
+The purpose of application is to assist users in managing their blood pressure and promoting healthier lifestyle choices. By providing an accessible and intuitive platform for recording and monitoring blood pressure measurements, it aims to assist users in promoting their cardiovascular health and fostering proactive management of their blood pressure. 
 
-### Installation
-Follow these steps to install and set up the frontend application:
+###  Objectives:
 
-1. Clone the repository using Git:
+The primary objective is to design and create a user-friendly blood pressure monitoring application that is intuitive, visually appealing, and responsive across different devices. A functionality will be implemented that enables users to enter and store their measurements accurately. Mechanisms will be implemented to store & retrieve information via RESTful APIs. Visual representations will be provided, such as charts or graphs, to display measurements over time, helping user to track their progress effectively.
 
-```   
-git clone git@github.com:eddof13/SWE-6633.git
-```
+### Scope: 
 
-2. Navigate to the frontend directory:
-
-```
-cd frontend
-```
-
-3. Install the dependencies using Yarn:
-```
-yarn install
-```
-
-### Running the Application
-
-To start the frontend application, follow these steps:
-
-1. Open a terminal and navigate to the frontend directory if you're not already in it.
-
-2. Start the development server using the following command:
-
-```
-yarn start
-```
-
-3. The application will compile and start, and you should see a message indicating that the server is running.
-
-4. Open your web browser and visit http://localhost:3000 to access the application.
-
-### Building for Production
-
-To build the frontend application for production, use the following command:
-
-```
-yarn build
-```
-
-The production-ready build will be created in the build directory. You can deploy this build to a web server or hosting platform of your choice.
-
-### Running Tests
-
-To run the test suite for the frontend application, use the following command:
-```
-yarn test
-```
-
-This will execute the tests and display the results in the terminal.
+This will be a Web app that will primarily focus on recording and managing systolic and diastolic blood pressure measurements. A registration and authentication system will be implemented to ensure secure access to the app. User info and blood pressure measurements will be stored securely in a database. Visualizations, such as charts or graphs, will be implemented to display blood pressure measurements over time. It will be accessible and responsive across different platforms, including desktop computers, laptops, tablets, and mobile devices. Implementing tracking from devices, e.g. via Bluetooth connectivity, in a web app can involve more complexity compared to native mobile or desktop applications, hence, it is determined that this feature will not be within the scope of this project.
