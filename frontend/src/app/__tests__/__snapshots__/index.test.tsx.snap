@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render and match the snapshot 1`] = `
+<BrowserRouter>
+  <Helmet
+    defaultTitle="Blood Pressure Web App"
+    defer={true}
+    encodeSpecialCharacters={true}
+    htmlAttributes={
+      Object {
+        "lang": undefined,
+      }
+    }
+    prioritizeSeoTags={false}
+    titleTemplate="%s - Blood Pressure Web App"
+  >
+    <meta
+      content="Team 3 project for SWE 6633 Summer 2023"
+      name="description"
+    />
+  </Helmet>
+  <Routes>
+    <Route
+      element={<Unknown />}
+      path="/"
+    />
+    <Route
+      element={<Unknown />}
+      path="/register"
+    />
+    <Route
+      element={<Unknown />}
+      path="/menu"
+    />
+    <Route
+      element={<Unknown />}
+      path="/entry"
+    />
+    <Route
+      element={<Unknown />}
+      path="/chart"
+    />
+    <Route
+      element={<Unknown />}
+      path="*"
+    />
+  </Routes>
+  <Memo(l) />
+</BrowserRouter>
+`;

@@ -108,6 +108,7 @@ export function BloodPressureRegister(props: Props) {
                 sx={{ marginBottom: 2 }}
                 variant="outlined"
                 size="small"
+                inputProps={{ 'data-testid': 'password-input' }}
               />
               <TextField
                 label="Re-enter Password"
@@ -118,6 +119,7 @@ export function BloodPressureRegister(props: Props) {
                 sx={{ marginBottom: 2 }}
                 variant="outlined"
                 size="small"
+                inputProps={{ 'data-testid': 'repassword-input' }}
               />
               <Button
                 variant="contained"
