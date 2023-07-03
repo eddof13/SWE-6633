@@ -6,23 +6,23 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-import com.swe6633.bloodpressure.BloodPressureReadingRepository;
-import com.swe6633.bloodpressure.models.BloodPressureReading;
+import com.swe6633.bloodpressure.models.Role;
+import com.swe6633.bloodpressure.models.ERole;
 
 @Component
 class LoadDatabase implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
-    private BloodPressureReadingRepository repository;
+    private RoleRepository roleRepository;
 
-    public LoadDatabase(BloodPressureReadingRepository repository) {
-	this.repository = repository;
+    public LoadDatabase(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
     }
     
     @Override
     public void run(String... args) throws Exception {
-	log.info("Preloading " + repository.save(new BloodPressureReading("user", 10.0, 5.4)));
-	log.info("Preloading " + repository.save(new BloodPressureReading("user", 25.0, 12.0)));
-	log.info("Preloading " + repository.save(new BloodPressureReading("user", 30.0, 31)));
+        log.info("Preloading " + roleRepository.save(new Role(ERole.ROLE_USER)));
+        log.info("Preloading " + roleRepository.save(new Role(ERole.ROLE_MODERATOR)));
+        log.info("Preloading " + roleRepository.save(new Role(ERole.ROLE_ADMIN)));
     }
 }

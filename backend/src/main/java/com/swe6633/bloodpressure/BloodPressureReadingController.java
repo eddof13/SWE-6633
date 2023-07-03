@@ -9,13 +9,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import com.swe6633.bloodpressure.models.BloodPressureReading;
+import com.swe6633.bloodpressure.models.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 class BloodPressureReadingController {
 
   private final BloodPressureReadingRepository repository;
+  
+  @Autowired UserRepository userRepository;
 
   BloodPressureReadingController(BloodPressureReadingRepository repository) {
     this.repository = repository;
@@ -24,27 +35,38 @@ class BloodPressureReadingController {
 
   // Aggregate root
   // tag::get-aggregate-root[]
-  @GetMapping("/blood-pressure-readings")
+  @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+  @GetMapping("/api/blood-pressure-readings")
   List<BloodPressureReading> all() {
-    return repository.findAll();
+    UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    User user = userRepository.findByUsername(userDetails.getUsername())
+        .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+    return user.getBloodPressureReadings();
   }
   // end::get-aggregate-root[]
 
-  @PostMapping("/blood-pressure-readings")
+  @PostMapping("/api/blood-pressure-readings")
+  @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   BloodPressureReading newReading(@RequestBody BloodPressureReading newReading) {
+    UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    User user = userRepository.findByUsername(userDetails.getUsername())
+        .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+    newReading.setUser(user);
     return repository.save(newReading);
   }
 
   // Single item
   
-  @GetMapping("/blood-pressure-readings/{id}")
+  @GetMapping("/api/blood-pressure-readings/{id}")
+  @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   BloodPressureReading one(@PathVariable Long id) {
     
     return repository.findById(id)
       .orElseThrow(() -> new BloodPressureReadingNotFoundException(id));
   }
 
-  @PutMapping("/blood-pressure-readings/{id}")
+  @PutMapping("/api/blood-pressure-readings/{id}")
+  @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   BloodPressureReading replaceReading(@RequestBody BloodPressureReading newReading, @PathVariable Long id) {
     
     return repository.findById(id)
@@ -59,7 +81,8 @@ class BloodPressureReadingController {
       });
   }
 
-  @DeleteMapping("/blood-pressure-readings/{id}")
+  @DeleteMapping("/api/blood-pressure-readings/{id}")
+  @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   void deleteReading(@PathVariable Long id) {
     repository.deleteById(id);
   }
