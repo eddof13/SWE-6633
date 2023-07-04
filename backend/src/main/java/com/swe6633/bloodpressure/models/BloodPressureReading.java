@@ -2,24 +2,25 @@ package com.swe6633.bloodpressure.models;
 
 import java.util.Objects;
 import java.util.Date;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
+import jakarta.persistence.*;
 
 @Entity
 public class BloodPressureReading {
     private @Id @GeneratedValue Long id;
-    private String user; // TODO: replace with id association
+    
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
 
-    // TODO: get timestamps working
-    //@CreationTimestamp
-    //@Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
 
-    //@UpdateTimestamp
-    //@Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date modifyDate;
 
     private double systolic;
@@ -27,10 +28,10 @@ public class BloodPressureReading {
 
     public BloodPressureReading() {}
 
-    public BloodPressureReading(String userName, double upper, double lower) {
-	this.user = userName;
-	this.systolic = upper;
-	this.diastolic = lower;
+    public BloodPressureReading(User user, double systolic, double diastolic) {
+	this.user = user;
+	this.systolic = systolic;
+	this.diastolic = diastolic;
     }
 
     public void setId(Long id) {
@@ -41,12 +42,12 @@ public class BloodPressureReading {
 	return this.id;
     }
 
-    public String getUser() {
-	return this.user;
+    public String getUserName() {
+	return this.user.getUsername();
     }
 
-    public void setUser(String userName) {
-	this.user = userName;
+    public void setUser(User user) {
+	this.user = user;
     }
 
     public Date getCreateDate() {
@@ -61,16 +62,16 @@ public class BloodPressureReading {
 	return this.systolic;
     }
 
-    public void setSystolic(double upper) {
-	this.systolic = upper;
+    public void setSystolic(double systolic) {
+	this.systolic = systolic;
     }
 
     public double getDiastolic() {
 	return this.diastolic;
     }
 
-    public double setDiastolic(double lower) {
-	return this.diastolic = lower;
+    public double setDiastolic(double diastolic) {
+	return this.diastolic = diastolic;
     }
 
     @Override
