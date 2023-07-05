@@ -43,6 +43,7 @@ export function App() {
         <Route path="/chart" element={<BloodPressureChart />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
       <GlobalStyle />
     </BrowserRouter>
   );

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BloodPressureMenu /> renders and matches the snapshot 1`] = `
+<div
+  class="MuiBox-root css-a01vnn"
+>
+  <div
+    class="MuiBox-root css-1m6j7ie"
+  >
+    <h4
+      class="MuiTypography-root MuiTypography-h4 css-102h1vd-MuiTypography-root"
+    >
+      Menu
+    </h4>
+    <div
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1vxu1nb-MuiPaper-root-MuiCard-root"
+    >
+      <a
+        href="/entry"
+        style="text-decoration: none; color: rgb(255, 255, 255); display: block; text-align: center;"
+      >
+        <div
+          class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <h6
+            class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+          >
+            Add Entry
+          </h6>
+        </div>
+      </a>
+    </div>
+    <div
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-pikna7-MuiPaper-root-MuiCard-root"
+    >
+      <div
+        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+      >
+        <h6
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-qs376m-MuiTypography-root"
+        >
+          View Chart
+        </h6>
+      </div>
+    </div>
+    <button
+      aria-label="Logout"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-mxj8j1-MuiButtonBase-root-MuiIconButton-root"
+      data-mui-internal-clone-element="true"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1wxstni-MuiSvgIcon-root"
+        data-testid="LogoutIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;

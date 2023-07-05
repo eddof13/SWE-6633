@@ -3,14 +3,24 @@ import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { bloodPressureChartSaga } from './saga';
 import { BloodPressureChartState } from './types';
+import { isNullishCoalesce } from 'typescript';
 
-export const initialState: BloodPressureChartState = {};
+export const initialState: BloodPressureChartState = {
+  data: [],
+  error: '',
+};
 
 const slice = createSlice({
   name: 'bloodPressureChart',
   initialState,
   reducers: {
-    someAction(state, action: PayloadAction<any>) {},
+    bpData(state, action: PayloadAction<any>) {},
+    bpDataList(state, action: PayloadAction<any[]>) {
+      state.data = action.payload;
+    },
+    bpDataError(state, action: PayloadAction<string>) {
+      state.error = action.payload;
+    },
   },
 });
 
@@ -21,15 +31,3 @@ export const useBloodPressureChartSlice = () => {
   useInjectSaga({ key: slice.name, saga: bloodPressureChartSaga });
   return { actions: slice.actions };
 };
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useBloodPressureChartSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */

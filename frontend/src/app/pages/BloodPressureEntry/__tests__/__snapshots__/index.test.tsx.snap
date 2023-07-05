@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BloodPressureEntry /> renders and matches the snapshot 1`] = `
+<div
+  class="MuiBox-root css-a01vnn"
+>
+  <div
+    class="MuiBox-root css-1m6j7ie"
+  >
+     
+    <button
+      aria-label="Back to Menu"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-12d0ngf-MuiButtonBase-root-MuiIconButton-root"
+      data-mui-internal-clone-element="true"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="HomeIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <h4
+      class="MuiTypography-root MuiTypography-h4 css-1onv7m9-MuiTypography-root"
+    >
+      Add Entry
+    </h4>
+    <div
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-17yhq9c-MuiPaper-root-MuiCard-root"
+    >
+      <div
+        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+      >
+        <div
+          class="MuiBox-root css-j7qwjs"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root css-1sqs9ir-MuiFormControl-root-MuiTextField-root"
+            data-testid="Systolic"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="false"
+              for=":r1:"
+              id=":r1:-label"
+            >
+              Systolic
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                id=":r1:"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                required=""
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-yjsfm1"
+                >
+                  <span>
+                    Systolic
+                     
+                    *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root css-1sqs9ir-MuiFormControl-root-MuiTextField-root"
+            data-testid="Diastolic"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="false"
+              for=":r2:"
+              id=":r2:-label"
+            >
+              Diastolic
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                id=":r2:"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                required=""
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-yjsfm1"
+                >
+                  <span>
+                    Diastolic
+                     
+                    *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-5yl24o-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="submit"
+          >
+            Submit
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
