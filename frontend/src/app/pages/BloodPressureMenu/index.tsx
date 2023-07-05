@@ -13,11 +13,32 @@ import {
   Typography,
 } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useBloodPressureLoginSlice } from '../BloodPressureLogin/slice';
+import { useBloodPressureChartSlice } from '../BloodPressureChart/slice';
 
 interface Props {}
 
 export function BloodPressureMenu(props: Props) {
+  const { actions: loginActions } = useBloodPressureLoginSlice();
+  const { actions: chartActions } = useBloodPressureChartSlice();
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(loginActions.loginUsername(''));
+    dispatch(loginActions.loginAccessToken(''));
+    dispatch(loginActions.loginTokenType(''));
+    navigate('/');
+  };
+
+  const handleViewChart = () => {
+    dispatch(chartActions.bpData(true));
+    navigate('/chart');
+  };
+
   return (
     <Box
       sx={{
@@ -69,21 +90,18 @@ export function BloodPressureMenu(props: Props) {
             width: '100%',
             maxWidth: '400px',
             backgroundColor: '#B8860B',
+            cursor: 'pointer',
+            '&:hover': {
+              cursor: 'pointer',
+            },
           }}
+          onClick={handleViewChart}
         >
-          <Link
-            to="/chart"
-            style={{
-              textDecoration: 'none',
-              color: '#ffffff',
-              display: 'block',
-              textAlign: 'center',
-            }}
-          >
-            <CardContent>
-              <Typography variant="h6">View Chart</Typography>
-            </CardContent>
-          </Link>
+          <CardContent>
+            <Typography variant="h6" color={'white'} align="center">
+              View Chart
+            </Typography>
+          </CardContent>
         </Card>
         <Tooltip title="Logout" placement="left">
           <IconButton
@@ -93,8 +111,7 @@ export function BloodPressureMenu(props: Props) {
               top: '16px',
               right: '16px',
             }}
-            component={Link}
-            to="/"
+            onClick={handleLogout}
           >
             <LogoutIcon color="error" />
           </IconButton>

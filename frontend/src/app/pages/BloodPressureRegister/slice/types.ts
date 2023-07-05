@@ -1,2 +1,5 @@
 /* --- STATE --- */
-export interface BloodPressureRegisterState {}
+export interface BloodPressureRegisterState {
+  message: string;
+  error: string;
+}

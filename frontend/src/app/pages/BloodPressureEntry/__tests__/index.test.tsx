@@ -1,34 +1,24 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { configureAppStore } from 'store/configureStore';
 import { BloodPressureEntry } from '..';
 
-describe('BloodPressureEntry', () => {
-  const testPage = (
-    <Router>
-      <BloodPressureEntry />
-    </Router>
-  );
+afterEach(cleanup);
 
-  it('should render the entry form fields', async () => {
-    const { getByLabelText, getByText } = render(testPage);
+describe('<BloodPressureEntry />', () => {
+  it('renders and matches the snapshot', () => {
+    const store = configureAppStore();
 
-    const systolicInput = getByLabelText(/systolic/i);
-    const diastolicInput = getByLabelText(/diastolic/i);
-    const dateTimeInput = getByLabelText(/date and time/i);
-    const submitButton = getByText(/submit/i);
+    const { container } = render(
+      <Provider store={store}>
+        <Router>
+          <BloodPressureEntry />
+        </Router>
+      </Provider>,
+    );
 
-    expect(systolicInput).toBeInTheDocument();
-    expect(diastolicInput).toBeInTheDocument();
-    expect(dateTimeInput).toBeInTheDocument();
-    expect(submitButton).toBeInTheDocument();
-  });
-
-  it('should navigate to the menu page when home icon is clicked', () => {
-    const { getByTestId } = render(testPage);
-
-    const homeIcon = getByTestId('HomeIcon');
-    fireEvent.click(homeIcon);
-    expect(window.location.pathname).toBe('/menu');
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

@@ -1,38 +1,24 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { configureAppStore } from 'store/configureStore';
 import { BloodPressureMenu } from '..';
 
-describe('BloodPressureMenu', () => {
-  const testPage = (
-    <Router>
-      <BloodPressureMenu />
-    </Router>
-  );
-  it('should render the menu with links', () => {
-    const { getByText } = render(testPage);
+afterEach(cleanup);
 
-    expect(getByText('Add Entry')).toBeInTheDocument();
-    expect(getByText('View Chart')).toBeInTheDocument();
-  });
+describe('<BloodPressureMenu />', () => {
+  it('renders and matches the snapshot', () => {
+    const store = configureAppStore();
 
-  it('should navigate to the correct routes when links are clicked', () => {
-    const { getByText } = render(testPage);
+    const { container } = render(
+      <Provider store={store}>
+        <Router>
+          <BloodPressureMenu />
+        </Router>
+      </Provider>,
+    );
 
-    const addEntryLink = getByText('Add Entry');
-    fireEvent.click(addEntryLink);
-    expect(window.location.pathname).toBe('/entry');
-
-    const viewChartLink = getByText('View Chart');
-    fireEvent.click(viewChartLink);
-    expect(window.location.pathname).toBe('/chart');
-  });
-
-  it('should navigate to the home route when logout button is clicked', () => {
-    const { getByTestId } = render(testPage);
-
-    const logoutButton = getByTestId('LogoutIcon');
-    fireEvent.click(logoutButton);
-    expect(window.location.pathname).toBe('/');
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

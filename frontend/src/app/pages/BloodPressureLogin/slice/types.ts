@@ -1,2 +1,7 @@
 /* --- STATE --- */
-export interface BloodPressureLoginState {}
+export interface BloodPressureLoginState {
+  error: string;
+  username: string;
+  accessToken: string;
+  tokenType: string;
+}

@@ -2,6 +2,7 @@ import { BloodPressureLoginState } from 'app/pages/BloodPressureLogin/slice/type
 import { BloodPressureRegisterState } from 'app/pages/BloodPressureRegister/slice/types';
 import { BloodPressureEntryState } from 'app/pages/BloodPressureEntry/slice/types';
 import { BloodPressureChartState } from 'app/pages/BloodPressureChart/slice/types';
+import { AppState } from 'app/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -13,5 +14,6 @@ export interface RootState {
   bloodPressureRegister?: BloodPressureRegisterState;
   bloodPressureEntry?: BloodPressureEntryState;
   bloodPressureChart?: BloodPressureChartState;
+  app?: AppState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
